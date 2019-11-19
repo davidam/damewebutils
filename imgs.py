@@ -31,7 +31,7 @@ parser.add_argument("url", help="url to analize broken links")
 args = parser.parse_args()
 print(args.url)
 
-start_url = args.url
+start_url = args.url+'/'
 response = requests.get(start_url)
 tree = html.fromstring(response.text)
 imgs = tree.cssselect('img')  # or tree.xpath('//a')
@@ -51,14 +51,12 @@ for o in out:
         absoluteurls.append(o)
 
 buggyurls = []
-for l in absoluteurls:
-    print(l)
-    try:
-        r = requests.get(l)
-        r.raise_for_status()
-        print(r.status_code)
-    except:
-        buggyurls.append(l)
-        print("Error %s" % r.status.code)
+for i in absoluteurls:
+    print(i)
+    r = requests.get(i)
+    r.raise_for_status()
+    print(r.status_code)
+    if (r.status_code != 200):
+        buggyurls.append(i)
 
-print("Imgs with possible troubles in %s" % l)
+print("Imgs with possible troubles in %s" % buggyurls)
