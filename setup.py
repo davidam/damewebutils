@@ -57,7 +57,7 @@ def drop_pwd(s):
 print(files_one_level_drop_pwd(cwd+"/files/tests"))
 
 setup(name='damewebutils',
-      version='0.0.3',
+      version='0.0.7',
       description='Web utils for Python',
 #      long_description=readme(),
       classifiers=[
@@ -67,14 +67,14 @@ setup(name='damewebutils',
         'Topic :: Text Processing :: Linguistic',
       ],
       keywords='web, links',
-
+      scripts=['dameimgs.py', 'dameurls.py'],
       url='http://github.com/davidam/damewebutils',
       author='David Arroyo Menéndez',
       author_email='davidam@gnu.org',
       license='GPLv3',
       packages=['damewebutils', 'damewebutils.files'],
       package_dir={'damewebutils': '', 'damewebutils.files': 'files'},
-      data_files=[('damewebutils', ['README.org', 'testsbycommands.sh', 'imgs.py', 'urls.py'] + files_one_level_drop_pwd(cwd+"/files/tests"))],
+      data_files=[('damewebutils', ['README.org', 'testsbycommands.sh', 'dameimgs.py', 'dameurls.py'] + files_one_level_drop_pwd(cwd+"/files/tests"))],
       install_requires=[
           'markdown',
           'requests',
