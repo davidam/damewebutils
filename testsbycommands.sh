@@ -20,21 +20,21 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-python3 urls.py http://www.davidam.com > files/tests/davidam-index-$(date "+%Y-%m-%d-%H").txt
+python3 dameurls.py http://www.davidam.com > files/tests/davidam-index-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/davidam-index.txt files/tests/davidam-index-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-    echo "urls.py with davidam.com test is failing"
+    echo "dameurls.py with davidam.com test is failing"
 else
-    echo "urls.py with davidam.com test is ok"
+    echo "dameurls.py with davidam.com test is ok"
 fi
 
 
-python3 imgs.py http://www.damegender.net > files/tests/damegender-imgs-$(date "+%Y-%m-%d-%H").txt
+python3 dameimgs.py http://www.damegender.net > files/tests/damegender-imgs-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/damegender-imgs.txt files/tests/damegender-imgs-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-    echo "imgs.py with damegender.net test is failing"
+    echo "dameimgs.py with damegender.net test is failing"
 else
-    echo "imgs.py with damegender.net test is ok"
+    echo "dameimgs.py with damegender.net test is ok"
 fi
