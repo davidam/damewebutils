@@ -23,6 +23,7 @@
 
 from unittest import TestCase
 from xml.dom import minidom
+import xml.etree.ElementTree as ET
 
 class TestXml(TestCase):
 
@@ -34,3 +35,10 @@ class TestXml(TestCase):
         for s in itemlist:
             l.append(s.attributes['name'].value)
         self.assertEqual(l, ['item1', 'item2', 'item3', 'item4'])
+
+    def test_rss(self):
+        tree = ET.parse('files/rss.xml')
+        l = []
+        for elem in tree.iter():
+            l.append(elem)
+        self.assertEqual(len(l), 855)
