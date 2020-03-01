@@ -17,9 +17,10 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with GNU Emacs; see the file COPYING.  If not, write to
+# along with damewebutils; see the file COPYING.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
+
 class CGImethod(object):
     def __init__(self, title):
         self.title = title
@@ -40,10 +41,10 @@ class CGImethod(object):
 def say_hello():
     print('<h1>Hello from CGI-Land</h1>')
 
-say_hello()       
+say_hello()
 
 @CGImethod("Hello with Decorator")
 def say_hello2():
     print('<h1>Hello from CGI-Land</h1>\n' '<p>and paragraph</p>')
 
-say_hello2()    
+say_hello2()
