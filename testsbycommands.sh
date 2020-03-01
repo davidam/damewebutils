@@ -47,3 +47,5 @@ then
 else
     echo "template.py is ok"
 fi
+
+rm damewebutils/files/tests/*-$(date "+%Y-%m-%d-%H").txt
