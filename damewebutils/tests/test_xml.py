@@ -36,9 +36,19 @@ class TestXml(TestCase):
             l.append(s.attributes['name'].value)
         self.assertEqual(l, ['item1', 'item2', 'item3', 'item4'])
 
-    def test_rss(self):
+    def test_et(self):
         tree = ET.parse('files/rss.xml')
         l = []
         for elem in tree.iter():
             l.append(elem)
         self.assertEqual(len(l), 855)
+
+    def test_et_modify(self):
+        tree = ET.parse('files/index.xhtml')
+        p = tree.find("body/p")
+        links = list(p.iter("a"))
+        self.assertEqual(2, len(links))
+        for i in links:
+            i.attrib["target"] = "blank"
+        tree.write("files/output.xhtml")
+        self.assertNotEqual("files/index.xhtml", "files/output.xhtml")
