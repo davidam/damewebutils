@@ -52,3 +52,17 @@ class TestXml(TestCase):
             i.attrib["target"] = "blank"
         tree.write("files/output.xhtml")
         self.assertNotEqual("files/index.xhtml", "files/output.xhtml")
+
+    def test_build_xml(self):
+        a = ET.Element('elem')
+        c = ET.SubElement(a, 'child1')
+        c.text = "some text"
+        d = ET.SubElement(a, 'child2')
+        b = ET.Element('elem_b')
+        root = ET.Element('root')
+        root.extend((a, b))
+        tree = ET.ElementTree(root)
+        tree.write("files/tree_created.xml")
+        fo = open("files/tree_created.xml", "r+")
+        lines = fo.readlines()
+        self.assertEqual(['<root><elem><child1>some text</child1><child2 /></elem><elem_b /></root>'], lines)
