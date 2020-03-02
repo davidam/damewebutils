@@ -76,3 +76,20 @@ class TestXml(TestCase):
         fo = open("files/tree_created.xml", "r+")
         lines = fo.readlines()
         self.assertEqual(['<document>\n', '  <document>\n', '  <para>This is a paragraph.</para>\n', '</document>\n', '</document>'], lines)
+
+    def test_foaf(self):
+        import rdflib
+        g = rdflib.Graph()
+        # ... add some triples to g somehow ...
+        g.parse("files/foaf.rdf")
+        qres = g.query(
+            """SELECT DISTINCT ?aname ?bname
+            WHERE {
+            ?a foaf:knows ?b .
+            ?a foaf:name ?aname .
+            ?b foaf:name ?bname .
+            }""")
+        cnt = 0
+        for row in qres:
+            cnt = cnt +1
+        self.assertEqual(cnt, 50)
