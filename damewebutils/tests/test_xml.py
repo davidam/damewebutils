@@ -66,3 +66,13 @@ class TestXml(TestCase):
         fo = open("files/tree_created.xml", "r+")
         lines = fo.readlines()
         self.assertEqual(['<root><elem><child1>some text</child1><child2 /></elem><elem_b /></root>'], lines)
+
+    def test_include_xml(self):
+        from xml.etree import ElementTree, ElementInclude
+        tree = ElementTree.parse("files/document.xml")
+        root = tree.getroot()
+        ElementInclude.include(root)
+        tree.write("files/tree_created.xml")
+        fo = open("files/tree_created.xml", "r+")
+        lines = fo.readlines()
+        self.assertEqual(['<document>\n', '  <document>\n', '  <para>This is a paragraph.</para>\n', '</document>\n', '</document>'], lines)
