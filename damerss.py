@@ -33,17 +33,19 @@ import requests
 parser = argparse.ArgumentParser()
 parser.add_argument("url", help="url to download rss files")
 parser.add_argument("-n", "--number", type=int, default=5)
+parser.add_argument("-f", "--file", help="file with rss downloaded")
 args = parser.parse_args()
-print(args.url)
+
 r = requests.get(args.url)
-print(r.url)
-print(r.text)
 fo = open("/tmp/rss.xml", "w")
 fo.write(r.text);
 fo.close()
 
 tree = ET.parse('/tmp/rss.xml')
+root = tree.getroot()
+
 for elem in tree.iter():
-    print(elem)
-
-
+    if (elem.tag == "title"):
+        print(elem.text)
+    if (elem.tag == "link"):
+        print(elem.text)
