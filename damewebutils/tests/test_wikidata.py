@@ -41,3 +41,29 @@ class TestWikidata(TestCase):
         for result in results["results"]["bindings"]:
             l.append(result["label"]["value"])
         self.assertEqual(l, ['Asturias', 'منطقة أستورياس', 'Asturien', 'Asturias', 'Asturies', 'Asturie', 'アストゥリアス州', 'Asturië (regio)', 'Asturia', 'Astúrias', 'Астурия', '阿斯图里亚斯'])
+
+    def test_surnames(self):
+        url = 'https://query.wikidata.org/sparql'
+        query = """
+SELECT ?surname ?surnameLabel ?count
+WHERE
+{
+  {
+    SELECT ?surname (COUNT(?human) AS ?count) WHERE {
+    # ?human wdt:P31 wd:Q5.
+      ?human wdt:P734 ?surname.
+    }
+    GROUP BY ?surname ORDER BY DESC(?count) LIMIT 2
+  }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
+ORDER BY DESC(?count)
+# limit to 10 results so we don't timeout
+"""
+        r = requests.get(url, params = {'format': 'json', 'query': query})
+        data = r.json()
+        l = []
+        for result in data["results"]["bindings"]:
+            elem = [result['surnameLabel']['value'], result['count']['value']]
+            l.append(elem)
+        self.assertEqual(l, [['Li', '33280'], ['Wang', '30535']])
