@@ -24,6 +24,7 @@
 
 from unittest import TestCase
 from http import cookies
+import requests
 
 class TestCookies(TestCase):
 
@@ -60,3 +61,9 @@ class TestCookies(TestCase):
         C["string"] = "seven"
         self.assertEqual(C["number"].value, '7')
         self.assertEqual(C["string"].value, "seven")
+
+    def test_session(self):
+        s = requests.Session()
+        s.get('http://httpbin.org/cookies/set/sessioncookie/123456789')
+        r = s.get("http://httpbin.org/cookies")
+        self.assertEqual(r.text, '{\n  "cookies": {\n    "sessioncookie": "123456789"\n  }\n}\n')
