@@ -53,6 +53,27 @@ class TestXml(TestCase):
         tree.write("files/output.xhtml")
         self.assertNotEqual("files/index.xhtml", "files/output.xhtml")
 
+    def test_et_tags_text_attrib(self):
+        tree = ET.parse('files/rss.xml')
+        item = tree.find("channel/item")
+        links = list(item.iter("link"))
+        self.assertEqual(1, len(links))
+        # root = tree.getroot()
+        # rtitle = root.find("channel/item")
+        # rtitles = list(rtitle.iter("title"))
+        # self.assertEqual(1, len(titles))
+#        self.assertEqual(2, len(titles))
+
+    def test_et_modify(self):
+        tree = ET.parse('files/index.xhtml')
+        p = tree.find("body/p")
+        links = list(p.iter("a"))
+        self.assertEqual(2, len(links))
+        for i in links:
+            i.attrib["target"] = "blank"
+        tree.write("files/output.xhtml")
+        self.assertNotEqual("files/index.xhtml", "files/output.xhtml")
+
     def test_build_xml(self):
         a = ET.Element('elem')
         c = ET.SubElement(a, 'child1')
@@ -93,3 +114,4 @@ class TestXml(TestCase):
         for row in qres:
             cnt = cnt +1
         self.assertEqual(cnt, 50)
+
