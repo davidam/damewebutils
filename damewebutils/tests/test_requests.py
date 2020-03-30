@@ -22,6 +22,8 @@
 # Boston, MA 02110-1301 USA,
 
 
+# Summary from https://requests.readthedocs.io/en/master/user/quickstart/
+
 from unittest import TestCase
 import requests
 
@@ -31,13 +33,9 @@ class TestRequests(TestCase):
         r = requests.get('https://api.github.com/repos/kennethreitz/requests/issues/482')
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.url, 'https://api.github.com/repositories/1362490/issues/482')
-
-
-
-    # def test_session2(self):
-    #     s = requests.Session()
-    #     s.auth = ('user', 'pass')
-    #     s.headers.update({'x-test': 'true'})
-    #     # both 'x-test' and 'x-test2' are sent
-    #     s.get('http://httpbin.org/headers', headers={'x-test2': 'true'})
-    #     self.assertEqual(s.text, "asdf")
+        r = requests.post('https://httpbin.org/post', data = {'key':'value'})
+        c = '{\n  "args": {}, \n  "data": "", \n  "files": {}, \n  "form": {\n    "key": "value"\n  }, \n  "headers": {\n    "Accept": "*/*", \n    "Accept-Encoding": "gzip, deflate", \n    "Content-Length": "9", \n    "Content-Type": "application/x-www-form-urlencoded", \n    "Host": "httpbin.org", \n    "User-Agent": "python-requests/2.18.4", \n    "X-Amzn-Trace-Id": ' 
+        self.assertTrue(c in r.text)
+        self.assertEqual(r.raise_for_status(), None)
+        self.assertEqual('true', r.headers['Access-Control-Allow-Credentials'])
+        
