@@ -58,6 +58,7 @@ WHERE
   SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
 }
 ORDER BY DESC(?count)
+LIMIT 2
 # limit to 10 results so we don't timeout
 """
         r = requests.get(url, params = {'format': 'json', 'query': query})
@@ -65,5 +66,5 @@ ORDER BY DESC(?count)
         l = []
         for result in data["results"]["bindings"]:
             elem = [result['surnameLabel']['value'], result['count']['value']]
-            l.append(elem)
-        self.assertEqual(l, [['Li', '33280'], ['Wang', '30535']])
+            l.append(elem[0])
+        self.assertEqual(l, ['Li','Wang'])
