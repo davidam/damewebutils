@@ -45,7 +45,10 @@ tree = ET.parse('/tmp/rss.xml')
 root = tree.getroot()
 
 for elem in tree.iter():
+
     if (elem.tag == "title"):
+        print("----------------------------------------------------------------------")
         print(elem.text)
     if (elem.tag == "link"):
         print(elem.text)
+        print("----------------------------------------------------------------------")
