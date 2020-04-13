@@ -2,21 +2,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. Check Test</a></li>
-<li><a href="#sec-2">2. Pypi</a></li>
+<li><a href="#sec-1">1. Logo</a></li>
+<li><a href="#sec-2">2. Check Test</a></li>
+<li><a href="#sec-3">3. Pypi</a></li>
+<li><a href="#sec-4">4. License</a></li>
 </ul>
 </div>
 </div>
 
 Webutils from Tests by David Arroyo Menéndez
 
-# Check Test<a id="sec-1" name="sec-1"></a>
+# Logo<a id="sec-1" name="sec-1"></a>
+
+![img](files/seller_of_eggs.jpg)
+
+# Check Test<a id="sec-2" name="sec-2"></a>
 
 -   Execute all tests:
 
     $ ./testsbycommands.sh
 
-# Pypi<a id="sec-2" name="sec-2"></a>
+# Pypi<a id="sec-3" name="sec-3"></a>
 
 -   To install from local:
 
@@ -36,3 +42,9 @@ $ python3 -m venv /tmp/dw
 $ cd /tmp/dw
 $ source bin/activate
 $ pip3 install damewebutils
+
+# License<a id="sec-4" name="sec-4"></a>
+
+This document is under a [Creative Commons Attribution 4.0 International](http://creativecommons.org/licenses/by/4.0/deed)
+
+[![img](http://i.creativecommons.org/l/by/3.0/80x15.png)](http://creativecommons.org/licenses/by/4.0/deed)

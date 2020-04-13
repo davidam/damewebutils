@@ -1,6 +1,11 @@
 
 Webutils from Tests by David Arroyo Menéndez
 
+* Logo
+#+attr_html: :width 200px
+#+attr_html: :height 200px
+[[file:files/seller_of_eggs.jpg]]
+
 * Check Test
 + Execute all tests:
 #+BEGIN_SRC
@@ -22,3 +27,7 @@ $ python3 -m venv /tmp/dw
 $ cd /tmp/dw
 $ source bin/activate
 $ pip3 install damewebutils
+* License
+This document is under a [[http://creativecommons.org/licenses/by/4.0/deed][Creative Commons Attribution 4.0 International]]
+
+[[http://creativecommons.org/licenses/by/4.0/deed][file:http://i.creativecommons.org/l/by/3.0/80x15.png]]
