@@ -27,6 +27,10 @@ $ python3 -m venv /tmp/dw
 $ cd /tmp/dw
 $ source bin/activate
 $ pip3 install damewebutils
+* Dame Music
+
+[[https://www.youtube.com/playlist?list=PLeobXV-Yyn-LvQydcnr46ZkGh1V6tDGEk][Listen music ...]]
+
 * License
 This document is under a [[http://creativecommons.org/licenses/by/4.0/deed][Creative Commons Attribution 4.0 International]]
 
