@@ -15,7 +15,7 @@ Webutils from Tests by David Arroyo Menéndez
 
 # Logo<a id="sec-1" name="sec-1"></a>
 
-![img](//upload.wikimedia.org/wikipedia/commons/thumb/6/63/Seller_of_eggs.jpg/320px-Seller_of_eggs.jpg)
+[![img](//upload.wikimedia.org/wikipedia/commons/thumb/6/63/Seller_of_eggs.jpg/320px-Seller_of_eggs.jpg)](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Seller_of_eggs.jpg/320px-Seller_of_eggs.jpg)
 
 # Check Test<a id="sec-2" name="sec-2"></a>
 
