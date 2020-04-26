@@ -1,34 +1,29 @@
-
-# Table of Contents
-
-1.  [Logo](#org9dc2a69)
-2.  [Check Test](#org3fc88b1)
-3.  [Pypi](#org16677c1)
-4.  [Dame Music](#org446d20e)
-5.  [License](#org3fa56ec)
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Logo</a></li>
+<li><a href="#sec-2">2. Check Test</a></li>
+<li><a href="#sec-3">3. Pypi</a></li>
+<li><a href="#sec-4">4. Dame Music</a></li>
+<li><a href="#sec-5">5. License</a></li>
+</ul>
+</div>
+</div>
 
 Webutils from Tests by David Arroyo Menéndez
 
+# Logo<a id="sec-1" name="sec-1"></a>
 
-<a id="org9dc2a69"></a>
+![img](//upload.wikimedia.org/wikipedia/commons/thumb/6/63/Seller_of_eggs.jpg/320px-Seller_of_eggs.jpg)
 
-# Logo
-
-![img](files/seller_of_eggs.jpg)
-
-
-<a id="org3fc88b1"></a>
-
-# Check Test
+# Check Test<a id="sec-2" name="sec-2"></a>
 
 -   Execute all tests:
 
     $ ./testsbycommands.sh
 
-
-<a id="org16677c1"></a>
-
-# Pypi
+# Pypi<a id="sec-3" name="sec-3"></a>
 
 -   To install from local:
 
@@ -49,19 +44,12 @@ $ cd /tmp/dw
 $ source bin/activate
 $ pip3 install damewebutils
 
-
-<a id="org446d20e"></a>
-
-# Dame Music
+# Dame Music<a id="sec-4" name="sec-4"></a>
 
 [Listen music &#x2026;](https://www.youtube.com/playlist?list=PLeobXV-Yyn-LvQydcnr46ZkGh1V6tDGEk)
 
-
-<a id="org3fa56ec"></a>
-
-# License
+# License<a id="sec-5" name="sec-5"></a>
 
 This document is under a [Creative Commons Attribution 4.0 International](http://creativecommons.org/licenses/by/4.0/deed)
 
 [![img](http://i.creativecommons.org/l/by/3.0/80x15.png)](http://creativecommons.org/licenses/by/4.0/deed)
-

@@ -2,9 +2,7 @@
 Webutils from Tests by David Arroyo Menéndez
 
 * Logo
-#+attr_html: :width 200px
-#+attr_html: :height 200px
-[[file:files/seller_of_eggs.jpg]]
+[[https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Seller_of_eggs.jpg/320px-Seller_of_eggs.jpg]]
 
 * Check Test
 + Execute all tests:
