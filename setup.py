@@ -55,14 +55,12 @@ def drop_pwd(s):
         result = re.sub(cwd+'/', '', s)
     return result
 
-print(files_one_level_drop_pwd(cwd+"/files/tests"))
-
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(name='damewebutils',
-      version='0.0.9',
+      version='0.0.18',
       description='Web utils for Python',
       long_description=long_description,
       long_description_content_type='text/markdown',
@@ -73,14 +71,14 @@ setup(name='damewebutils',
         'Topic :: Text Processing :: Linguistic',
       ],
       keywords='web, links',
-      scripts=['dameimgs.py', 'dameurls.py'],
+      scripts=['dameimgs.py', 'dameurls.py', 'damerss.py'],
       url='http://github.com/davidam/damewebutils',
       author='David Arroyo Menéndez',
       author_email='davidam@gnu.org',
       license='GPLv3',
-      packages=['damewebutils', 'damewebutils.files'],
-      package_dir={'damewebutils': '', 'damewebutils.files': 'files'},
-      data_files=[('damewebutils', ['README.org', 'testsbycommands.sh', 'dameimgs.py', 'dameurls.py'] + files_one_level_drop_pwd(cwd+"/files/tests"))],
+      packages=['damewebutils', 'damewebutils.tests', 'damewebutils.files', 'damewebutils.app'],
+      package_dir={'damewebutils': 'damewebutils', 'damewebutils.files': 'damewebutils/files', 'damewebutils.tests': 'damewebutils/tests', 'damewebutils.app': 'damewebutils/app'},
+      data_files=[('damewebutils', ['README.org', 'testsbycommands.sh', 'dameimgs.py', 'dameurls.py', 'damerss.py'] + files_one_level_drop_pwd(cwd+"/damewebutils/files/") + files_one_level_drop_pwd(cwd+"/damewebutils/files/tests"))],
       install_requires=[
           'markdown',
           'requests',
@@ -89,8 +87,8 @@ setup(name='damewebutils',
       ],
       test_suite='nose.collector',
       tests_require=['nose', 'nose-cover3'],
-      entry_points={
-          'console_scripts': ['damewebutils=damewebutils'],
-      },
+      # entry_points={
+      #     'console_scripts': ['damewebutils=damewebutils'],
+      # },
       include_package_data=True,
       zip_safe=False)
