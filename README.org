@@ -2,7 +2,8 @@
 Webutils from Tests by David Arroyo Menéndez
 
 * Logo
-[[https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Seller_of_eggs.jpg/320px-Seller_of_eggs.jpg][https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Seller_of_eggs.jpg/320px-Seller_of_eggs.jpg]]
+[[https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Seller_of_eggs.jpg/320px-Seller_of_eggs.jpg][file:https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Seller_of_eggs.jpg/320px-Seller_of_eggs.jpg]]
+
 * Check Test
 + Execute all tests:
 #+BEGIN_SRC
