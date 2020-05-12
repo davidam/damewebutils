@@ -34,8 +34,10 @@ class TestRequests(TestCase):
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.url, 'https://api.github.com/repositories/1362490/issues/482')
         r = requests.post('https://httpbin.org/post', data = {'key':'value'})
-        c = '{\n  "args": {}, \n  "data": "", \n  "files": {}, \n  "form": {\n    "key": "value"\n  }, \n  "headers": {\n    "Accept": "*/*", \n    "Accept-Encoding": "gzip, deflate", \n    "Content-Length": "9", \n    "Content-Type": "application/x-www-form-urlencoded", \n    "Host": "httpbin.org", \n    "User-Agent": "python-requests/2.18.4", \n    "X-Amzn-Trace-Id": ' 
-        self.assertTrue(c in r.text)
+        print(r.text)
+        
+        j = '{\n  "args": {}, \n  "data": "", \n  "files": {}, \n  "form": {\n    "key": "value"\n  }, \n  "headers": {\n    "Accept": "*/*", \n    "Accept-Encoding": "gzip, deflate", \n    "Content-Length": "9", \n    "Content-Type": "application/x-www-form-urlencoded", \n    "Host": "httpbin.org", \n    "User-Agent": "python-requests/2.18.4", \n    "X-Amzn-Trace-Id": ' 
+        self.assertTrue("x-www-form-urlencoded" in r.text)
         self.assertEqual(r.raise_for_status(), None)
         self.assertEqual('true', r.headers['Access-Control-Allow-Credentials'])
         
