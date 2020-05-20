@@ -1,0 +1,3 @@
+https://www.python.org/jobs/feed/rss/
+https://www.w3.org/blog/news/feed
+https://jobs.drupal.org/all-jobs/feed
