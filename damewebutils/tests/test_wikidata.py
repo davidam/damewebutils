@@ -125,3 +125,24 @@ ORDER BY DESC(?capital)
         r = requests.get(url, params = {'format': 'json', 'query': query})
         data = r.json()
         self.assertEqual(data['results']['bindings'][0]['countryLabel']['value'], "Netherlands")
+
+    def test_cervantes(self):
+        url = 'https://query.wikidata.org/sparql'
+        query = """        
+SELECT ?workLabel WHERE {
+ wd:Q165257 wdt:P2799 ?id 
+ BIND(uri(concat("http://data.cervantesvirtual.com/person/", ?id)) as ?bvmcID)
+ SERVICE <http://data.cervantesvirtual.com/openrdf-sesame/repositories/data> {
+ ?bvmcID <http://rdaregistry.info/Elements/a/authorOf> ?work .
+ ?work rdfs:label ?workLabel 
+ }
+}
+ORDER BY (?id)
+"""        
+        r = requests.get(url, params = {'format': 'json', 'query': query})
+        data = r.json()
+        print(data['results']['bindings'])
+        self.assertEqual(data['results']['bindings'][0], {'workLabel': {'value': 'Las Serranas de la Vera', 'type': 'literal'}})
+
+        
+        
