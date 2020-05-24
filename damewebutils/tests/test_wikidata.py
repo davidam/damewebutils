@@ -88,4 +88,25 @@ WHERE
         vector = data['results']['bindings'][0]
         values = [vector['code']['value'], vector['OSM']['value'], vector['itemLabel']['value'], vector['item']['value']]
         self.assertEqual(values, ['FR-75', '7444', 'Paris', 'http://www.wikidata.org/entity/Q90'])
+
+    def test_conan_doyle(self):
+        # See https://www.wikidata.org/wiki/Wikidata:SPARQL_tutorial#Arthur_Conan_Doyle_books
+        url = 'https://query.wikidata.org/sparql'
+        query = """
+SELECT ?book ?bookLabel
+WHERE
+{
+  ?book wdt:P50 wd:Q35610.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". }
+}
+ORDER BY DESC(?book)
+LIMIT 2
+
+"""
+        r = requests.get(url, params = {'format': 'json', 'query': query})
+        data = r.json()
+#        print(data['results']['bindings'][0]['bookLabel'])
+        self.assertEqual(data['results']['bindings'][0]['bookLabel'], {'type': 'literal', 'value': 'Q45192'})
+        
+ 
         
