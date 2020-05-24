@@ -142,8 +142,18 @@ ORDER BY (?id)
 """        
         r = requests.get(url, params = {'format': 'json', 'query': query})
         data = r.json()
-        print(data['results']['bindings'])
         self.assertEqual(data['results']['bindings'][0], {'workLabel': {'value': 'Las Serranas de la Vera', 'type': 'literal'}})
 
-        
+    def test_number_of_computer_types(self):
+        url = 'https://query.wikidata.org/sparql'
+        query = """
+        SELECT (count(*) as ?instances) WHERE  {
+            ?instance wdt:P31 wd:Q473708     # Instance has a type of "home computers
+        }
+"""
+        r = requests.get(url, params = {'format': 'json', 'query': query})
+        data = r.json()
+        print(data['results']['bindings'])
+        self.assertTrue(int(data['results']['bindings'][0]['instances']['value']) > 80)
+
         
