@@ -68,3 +68,24 @@ LIMIT 2
             elem = [result['surnameLabel']['value'], result['count']['value']]
             l.append(elem[0])
         self.assertEqual(l, ['Li','Wang'])
+
+    def test_openstreetmap(self):
+        # https://www.wikidata.org/wiki/Wikidata:OpenStreetMap
+        url = 'https://query.wikidata.org/sparql'
+        query = """
+SELECT ?itemLabel ?item ?OSM ?code
+WHERE
+{
+        ?item wdt:P31 wd:Q6465 . #French départements
+        ?item wdt:P300 ?code . #with ISO 3166-2 code
+        OPTIONAL { ?item wdt:P402 ?OSM }. #OSM relation if available
+        SERVICE wikibase:label { bd:serviceParam wikibase:language "fr" }
+}
+"""
+        r = requests.get(url, params = {'format': 'json', 'query': query})
+        data = r.json()
+        l = []
+        vector = data['results']['bindings'][0]
+        values = [vector['code']['value'], vector['OSM']['value'], vector['itemLabel']['value'], vector['item']['value']]
+        self.assertEqual(values, ['FR-75', '7444', 'Paris', 'http://www.wikidata.org/entity/Q90'])
+        
