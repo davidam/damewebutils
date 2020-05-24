@@ -127,6 +127,7 @@ ORDER BY DESC(?capital)
         self.assertEqual(data['results']['bindings'][0]['countryLabel']['value'], "Netherlands")
 
     def test_cervantes(self):
+        # http://www.cervantesvirtual.com/obra/la-serrana-de-la-vera--0/
         url = 'https://query.wikidata.org/sparql'
         query = """        
 SELECT ?workLabel WHERE {
