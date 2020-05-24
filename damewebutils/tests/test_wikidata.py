@@ -107,6 +107,21 @@ LIMIT 2
         data = r.json()
 #        print(data['results']['bindings'][0]['bookLabel'])
         self.assertEqual(data['results']['bindings'][0]['bookLabel'], {'type': 'literal', 'value': 'Q45192'})
-        
- 
-        
+
+    def test_ue(self):
+        # See https://towardsdatascience.com/a-brief-introduction-to-wikidata-bb4e66395eb1
+        url = 'https://query.wikidata.org/sparql'
+        query = """        
+        SELECT ?country ?countryLabel ?capitalLabel ?population 
+WHERE 
+{
+  ?country wdt:P463 wd:Q458.
+  ?country wdt:P36 ?capital.
+  ?capital wdt:P1082 ?population.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "   [AUTO_LANGUAGE],en". }
+}
+ORDER BY DESC(?capital)
+"""        
+        r = requests.get(url, params = {'format': 'json', 'query': query})
+        data = r.json()
+        self.assertEqual(data['results']['bindings'][0]['countryLabel']['value'], "Netherlands")
