@@ -1,6 +1,7 @@
 
 * v0.1
-Test for xml, requests, cookies and wikidata
-dameurls.py: check urls in a web page
-dameimgs.py: check imgs in a web page
-damerss.py: read news from rss with a command line
+Test for xml, requests, cookies and wikidata.
+
++ dameurls.py: check urls in a web page
++ dameimgs.py: check imgs in a web page
++ damerss.py: read news from rss with a command line
