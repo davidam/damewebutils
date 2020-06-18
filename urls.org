@@ -4,4 +4,5 @@ https://jobs.drupal.org/all-jobs/feed
 https://blog.wikimedia.org/feed/
 https://www.debian.org/News/news
 http://damegender.net/rss-feed.xml
-
+https://www.djangoproject.com/rss/community/jobs/
+https://www.debian.org/security/dsa-long
