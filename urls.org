@@ -6,3 +6,5 @@ https://www.debian.org/News/news
 http://damegender.net/rss-feed.xml
 https://www.djangoproject.com/rss/community/jobs/
 https://www.debian.org/security/dsa-long
+https://www.coop57.coop/es/rss.xml
+https://blog.somenergia.coop/feed/
