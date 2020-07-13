@@ -32,11 +32,12 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("url", help="url to analize broken links")
+parser.add_argument('--verify', default=False, action="store_true")
 args = parser.parse_args()
 
 
 start_url = args.url
-response = requests.get(start_url)
+response = requests.get(start_url, verify=args.verify)
 tree = html.fromstring(response.text)
 links = tree.cssselect('a')  # or tree.xpath('//a')
 
